@@ -4,7 +4,7 @@ from conans.util import files
 
 class qplotConan(ConanFile):
     name = "qplot"
-    version = "e9eb390"
+    version = "30469f8"
     license = "https://github.com/ess-dmsc/qplot/blob/master/LICENSE"
     url = "<Package recipe repository url here, for issues about the package>"
     description = "<Description of qplot here>"
@@ -20,7 +20,7 @@ class qplotConan(ConanFile):
 
     def source(self):
         self.run("git clone https://github.com/ess-dmsc/qplot.git")
-        self.run("cd qplot && git checkout e9eb390 && cd ..")
+        self.run("cd qplot && git checkout 30469f8 && cd ..")
 
     def build(self):
         files.mkdir(self.build_dir)
