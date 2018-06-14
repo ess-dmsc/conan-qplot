@@ -3,8 +3,8 @@ from conans import ConanFile, CMake, tools
 from conans.util import files
 
 class qplotConan(ConanFile):
-    name = "qplot"
-    version = "30469f8"
+    name = "QPlot"
+    version = "d05fe62"
     license = "https://github.com/ess-dmsc/qplot/blob/master/LICENSE"
     url = "<Package recipe repository url here, for issues about the package>"
     description = "<Description of qplot here>"
@@ -14,13 +14,13 @@ class qplotConan(ConanFile):
     generators = "cmake"
 
     # The folder name when the *.tar.gz release is extracted
-    folder_name = "qplot"
+    folder_name = "QPlot"
     # The temporary build diirectory
     build_dir = "./%s/build" % folder_name
 
     def source(self):
         self.run("git clone https://github.com/ess-dmsc/qplot.git")
-        self.run("cd qplot && git checkout 30469f8 && cd ..")
+        self.run("cd qplot && git checkout d05fe62 && cd ..")
 
     def build(self):
         files.mkdir(self.build_dir)
@@ -48,4 +48,4 @@ class qplotConan(ConanFile):
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
-        self.cpp_info.libs = ["qplot"]
+        self.cpp_info.libs = ["QPlot1"]
