@@ -1,5 +1,5 @@
 #include <QApplication>
-#include "QPlot2D.h"
+#include <QPlot/QPlot2D.h>
 
 int main(int argc, char *argv[])
 {

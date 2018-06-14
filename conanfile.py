@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 from conans.util import files
 
 class qplotConan(ConanFile):
-    name = "QPlot"
+    name = "qplot"
     version = "d05fe62"
     license = "https://github.com/ess-dmsc/qplot/blob/master/LICENSE"
     url = "<Package recipe repository url here, for issues about the package>"
@@ -14,7 +14,7 @@ class qplotConan(ConanFile):
     generators = "cmake"
 
     # The folder name when the *.tar.gz release is extracted
-    folder_name = "QPlot"
+    folder_name = "qplot"
     # The temporary build diirectory
     build_dir = "./%s/build" % folder_name
 
