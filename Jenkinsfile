@@ -90,7 +90,6 @@ def get_pipeline(image_key) {
           ).trim()
         }  // stage
 
-        /*
         stage("${image_key}: Local upload") {
           sh """docker exec ${container_name} ${custom_sh} -c \"
             conan upload \
@@ -129,7 +128,6 @@ def get_pipeline(image_key) {
             \""""
           }  // stage
         }  // if
-        */
       } finally {
         sh "docker stop ${container_name}"
         sh "docker rm -f ${container_name}"
@@ -174,7 +172,6 @@ def get_macos_pipeline() {
           ).trim()
         }  // stage
 
-        /*
         stage("macOS: Upload") {
           sh "conan upload \
             --all \
@@ -182,7 +179,6 @@ def get_macos_pipeline() {
             --remote ${conan_remote} \
             ${pkg_name_and_version}@${conan_user}/${conan_pkg_channel}"
         }  // stage
-        */
       }  // dir
     }  // node
   }  // return
