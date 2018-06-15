@@ -6,8 +6,8 @@ class qplotConan(ConanFile):
     name = "qplot"
     version = "b18d19c"
     license = "https://github.com/ess-dmsc/qplot/blob/master/LICENSE"
-    url = "<Package recipe repository url here, for issues about the package>"
-    description = "<Description of qplot here>"
+    url = "https://bintray.com/ess-dmsc/qplot"
+    description = "wrappers and convenience classes for custom plotting"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
@@ -40,10 +40,8 @@ class qplotConan(ConanFile):
 
     def package(self):
         self.copy("*", dst="include", src=self.build_dir+"/install/include")
-        self.copy("*.dll", dst="bin", keep_path=False)
-        self.copy("*.so", dst="lib", keep_path=False)
-        self.copy("*.dylib", dst="lib", keep_path=False)
-        self.copy("*.a", dst="lib", keep_path=False)
+        self.copy("*", dst="lib", src=self.build_dir+"/install/lib")
+        self.copy("*", dst="lib64", src=self.build_dir+"/install/lib64")
 
     def package_info(self):
         self.cpp_info.libs = ["qplot"]
