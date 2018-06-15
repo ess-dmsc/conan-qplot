@@ -15,7 +15,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 find_package(Qt5 COMPONENTS Widgets PrintSupport REQUIRED)
 
-#find_package(QPlot REQUIRED)
+find_package(QPlot REQUIRED)
 
 add_executable(example example.cpp)
 target_link_libraries(example
