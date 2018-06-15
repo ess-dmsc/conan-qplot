@@ -13,14 +13,14 @@ if(APPLE AND EXISTS /usr/local/opt/qt)
 endif()
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
 find_package(Qt5 COMPONENTS Widgets PrintSupport REQUIRED)
+
+#find_package(QPlot REQUIRED)
 
 add_executable(example example.cpp)
 target_link_libraries(example
     ${CONAN_LIBS}
-    QPlot1
+    QPlot
     Qt5::Widgets
     Qt5::PrintSupport)
 
