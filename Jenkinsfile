@@ -9,7 +9,7 @@ remote_upload_node = "ubuntu1804"
 images = [
   'ubuntu1804': [
     'name': 'essdmscdm/ubuntu18.04-build-node:1.1.0',
-    'sh': 'sh'
+    'sh': 'bash -e'
   ]
 ]
 
@@ -61,7 +61,7 @@ def get_pipeline(image_key) {
               set +x
               conan remote add \
                 --insert 0 \
-                ${conan_remote} ${local_conan_server} && \
+                ${conan_remote} ${local_conan_server}
               conan user \
                 --password '${CONAN_PASSWORD}' \
                 --remote ${conan_remote} \
@@ -83,7 +83,7 @@ def get_pipeline(image_key) {
           // Use shell script to avoid escaping issues
           pkg_name_and_version = sh(
             script: """docker exec ${container_name} ${custom_sh} -c \"
-                cd ${project} &&
+                cd ${project}
                 ./get_conan_pkg_name_and_version.sh
               \"""",
             returnStdout: true
