@@ -8,7 +8,7 @@ remote_upload_node = "ubuntu1804"
 
 images = [
   'ubuntu1804': [
-    'name': 'essdmscdm/ubuntu18.04-build-node:1.1.0',
+    'name': 'essdmscdm/ubuntu18.04-build-node:1.3.1',
     'sh': 'bash -e'
   ]
 ]
