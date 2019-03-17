@@ -19,19 +19,19 @@ package_builder.defineRemoteUploadNode('ubuntu1804')
 builders = package_builder.createPackageBuilders { container ->
   package_builder.addConfiguration(container, [
     'settings': [
-      'h5cpp:build_type': 'Release'
+      'qplot:build_type': 'Release'
     ],
     'options': [
-      'h5cpp:shared': "False"
+      'qplot:shared': "False"
     ]
   ])
 
   package_builder.addConfiguration(container, [
     'settings': [
-      'h5cpp:build_type': 'Debug'
+      'qplot:build_type': 'Debug'
     ],
     'options': [
-      'h5cpp:shared': "False"
+      'qplot:shared': "False"
     ]
   ])
 }
@@ -45,39 +45,18 @@ def get_macos_pipeline() {
           checkout scm
         }  // stage
 
-        stage("macOS: Conan setup") {
-          withCredentials([
-            string(
-              credentialsId: 'local-conan-server-password',
-              variable: 'CONAN_PASSWORD'
-            )
-          ]) {
-            sh "conan user \
-              --password '${CONAN_PASSWORD}' \
-              --remote ${conan_remote} \
-              ${conan_user} \
-              > /dev/null"
-          }  // withCredentials
-        }  // stage
-
         stage("macOS: Package") {
           sh "conan create . ${conan_user}/${conan_pkg_channel} \
             --settings qplot:build_type=Release \
             --options qplot:shared=False \
             --build=outdated"
 
-          pkg_name_and_version = sh(
-            script: "./get_conan_pkg_name_and_version.sh",
-            returnStdout: true
-          ).trim()
-        }  // stage
+          sh "conan create . ${conan_user}/${conan_pkg_channel} \
+            --settings qplot:build_type=Debug \
+            --options qplot:shared=False \
+            --build=outdated"
 
-        stage("macOS: Upload") {
-          sh "conan upload \
-            --all \
-            ${conan_upload_flag} \
-            --remote ${conan_remote} \
-            ${pkg_name_and_version}@${conan_user}/${conan_pkg_channel}"
+          sh "conan info ."
         }  // stage
       }  // dir
     }  // node
