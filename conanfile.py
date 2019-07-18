@@ -4,7 +4,7 @@ from conans.util import files
 
 class qplotConan(ConanFile):
     name = "qplot"
-    version = "53e5004"
+    version = "2ffc74f"
     license = "https://github.com/ess-dmsc/qplot/blob/master/LICENSE"
     url = "https://bintray.com/ess-dmsc/qplot"
     description = "wrappers and convenience classes for custom plotting"
@@ -15,7 +15,7 @@ class qplotConan(ConanFile):
 
     # The folder name when the *.tar.gz release is extracted
     folder_name = "qplot"
-    # The temporary build diirectory
+    # The temporary build directory
     build_dir = "./%s/build" % folder_name
 
     def source(self):
