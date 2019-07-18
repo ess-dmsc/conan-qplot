@@ -15,7 +15,7 @@ class qplotConan(ConanFile):
 
     # The folder name when the *.tar.gz release is extracted
     folder_name = "qplot"
-    # The temporary build diirectory
+    # The temporary build directory
     build_dir = "./%s/build" % folder_name
 
     def source(self):
