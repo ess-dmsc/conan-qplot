@@ -13,7 +13,7 @@ See the DMSC [conan-configuration repository](https://github.com/ess-dmsc/conan-
 In `conanfile.txt`:
 
 ```
-qplot/2ffc74f@ess-dmsc/stable
+qplot/3f6c5adf@ess-dmsc/stable
 ```
 
 In CMake:
@@ -31,9 +31,9 @@ If you are a contributor and wish to update this recipe to use the latest versio
 
 * make a branch
 * switch `channel` in [Jenkinsfile](Jenkinsfile) from `stable` to `testing`
-* in [conanfile.py](conanfile.py), change the commit hash to point to new version:
-    * in `version=`; and
-    * under `def source(self):`
+* change the commit hash to point to new version:
+    * in [conanfile.py](conanfile.py) at `version=`
+    * in this README, under the ["Using"](#using) section above
 * push and massage until the job succeeds on [Jenkins](https://jenkins.esss.dk/dm/job/ess-dmsc/job/conan-qplot/)
 * ideally, test new version of package with actual projects that use it
 * switch `channel` back to `stable` and make a merge request
