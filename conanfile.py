@@ -6,8 +6,8 @@ class qplotConan(ConanFile):
     name = "qplot"
     version = "3f6c5ad"
     license = "https://github.com/ess-dmsc/qplot/blob/master/LICENSE"
-    url = "https://bintray.com/ess-dmsc/qplot"
-    description = "wrappers and convenience classes for custom plotting"
+    url = "https://github.com/ess-dmsc/conan-qplot"
+    description = "Wrappers and convenience classes for scientific plotting with QtWidgets"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
