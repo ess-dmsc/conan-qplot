@@ -13,7 +13,7 @@ See the DMSC [conan-configuration repository](https://github.com/ess-dmsc/conan-
 In `conanfile.txt`:
 
 ```
-qplot/3f6c5adf@ess-dmsc/stable
+qplot/3f6c5ad@ess-dmsc/stable
 ```
 
 In CMake:
