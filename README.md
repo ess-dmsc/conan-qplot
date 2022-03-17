@@ -6,14 +6,14 @@ A Conan package for [qplot](https://github.com/ess-dmsc/qplot), a QtWidgets libr
 
 This repository tracks the recipe for generating the conan package. You should not have to run these steps yourself but instead simply fetch the package from the the conan remote server as described below.
 
-## Using
+## Using the package
 
 See the DMSC [conan-configuration repository](https://github.com/ess-dmsc/conan-configuration) for how to configure your remote.
 
 In `conanfile.txt`:
 
 ```
-qplot/3f6c5ad@ess-dmsc/stable
+qplot/6e192ab@ess-dmsc/stable
 ```
 
 In CMake:
@@ -25,7 +25,7 @@ target_link_libraries(my_target
 )
 ```
 
-## Updating
+## Updating the recipe
 
 If you are a contributor and wish to update this recipe to use the latest version of the target library:
 
