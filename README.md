@@ -1,19 +1,39 @@
 # conan-qplot
-A Conan package for qplot
 
-## Updating the conan package
+[![Build Status](https://jenkins.esss.dk/dm/job/ess-dmsc/job/conan-qplot/job/master/badge/icon)](https://jenkins.esss.dk/dm/job/ess-dmsc/job/conan-qplot/job/master/)
 
-1. Edit line 7 of the *conanfile.py*-file to set the commit tag of the new conan package.
+A Conan package for [qplot](https://github.com/ess-dmsc/qplot), a QtWidgets library for scientific plotting.
 
-2. When in the directory of the local copy of *conan-qplot*, execute this command:
+This repository tracks the recipe for generating the conan package. You should not have to run these steps yourself but instead simply fetch the package from the the conan remote server as described below.
 
-	```
-	conan create . qplot/xxxxxx@ess-dmsc/stable
-	```
-	Where **xxxxxx** is the hash of the used commit as set in the file *conanfile.py*.
+## Using the package
 
-4. Upload the new package to the relevant conan package repository by executing:
+See the DMSC [conan-configuration repository](https://github.com/ess-dmsc/conan-configuration) for how to configure your remote.
 
-	```
-	conan upload qplot/xxxxxx@ess-dmsc/stable --remote alias_of_repository
-	```
+In `conanfile.txt`:
+
+```
+qplot/6e192ab@ess-dmsc/stable
+```
+
+In CMake:
+```
+find_package(qplot REQUIRED)
+...
+target_link_libraries(my_target
+  PRIVATE QPlot
+)
+```
+
+## Updating the recipe
+
+If you are a contributor and wish to update this recipe to use the latest version of the target library:
+
+* make a branch
+* change `channel` in [Jenkinsfile](Jenkinsfile) from "stable" to "testing"
+* in [conanfile.py](conanfile.py) change `version=` to the hash (first 7 hex letters) of the commit that you want to package
+* push and massage until the job succeeds on [Jenkins](https://jenkins.esss.dk/dm/job/ess-dmsc/job/conan-qplot/)
+* ideally, test new version of package with actual projects that use it
+* update the conan package name in code example, under the ["Using the package"](#using-the-package) section above
+* change `channel` back to "stable" in [Jenkinsfile](Jenkinsfile) 
+* make a merge request
