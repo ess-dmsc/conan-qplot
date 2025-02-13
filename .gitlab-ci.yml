@@ -20,7 +20,7 @@ container_build_node:
   parallel:
     matrix:
       - CONTAINER: "centos7-gcc11"
-        IMAGE: "registry.esss.lu.se/ecdc/ess-dmsc/docker-centos7-build-node:12.3.0"
+        IMAGE: "registry.esss.lu.se/ecdc/ess-dmsc/build-nodes/centos7-qt6:1.0"
         SHELL: "/usr/bin/scl enable devtoolset-11 rh-python38 -- /bin/bash -e -x"
       - CONTAINER: "almalinux8-gcc12"
         IMAGE: "registry.esss.lu.se/ecdc/ess-dmsc/docker-almalinux8-build-node:1.1.0"
