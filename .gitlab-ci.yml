@@ -5,7 +5,7 @@ variables:
   CONAN_USER: "ess-dmsc"
   CONAN_PKG_CHANNEL: "stable"
   PROJECT_NAME: "conan-qplot"
-  TARGET_CONTAINER_UPLOAD_REMOTE: "centos7-gcc11"
+  TARGET_CONTAINER_UPLOAD_REMOTE: "centos7-gcc11-qt6"
   CONAN_EXTERNAL_NAME: "ecdc-conan-external"
   CONAN_EXTERNAL_URL: "https://artifactory.esss.lu.se/artifactory/api/conan/ecdc-conan-external"
   CONAN_RELEASE_NAME: "ecdc-conan-release"
@@ -38,13 +38,13 @@ container_build_node:
 
         setup_conan "$CONAN_EXTERNAL_NAME" "$CONAN_EXTERNAL_URL"
         setup_conan "$CONAN_RELEASE_NAME" "$CONAN_RELEASE_URL"
-        
+
         # Configurations for Conan package creation
         configurations=(
           "settings=(\"qplot:build_type=Release\") options=(\"qplot:shared=False\")"
           "settings=(\"qplot:build_type=Debug\") options=(\"qplot:shared=False\")"
         )
-        
+
         # Create a Conan Package for each configuration
         for config in "${configurations[@]}"; do
           eval "$config"
