@@ -8,7 +8,7 @@ conan_user = "ess-dmsc"
 conan_pkg_channel = "stable"
 
 container_build_nodes = [
-  'centos': ContainerBuildNode.getDefaultContainerBuildNode('centos7-gcc11'),
+  'centos': ContainerBuildNode.getDefaultContainerBuildNode('centos7-gcc11-qt6'),
   'ubuntu2204': ContainerBuildNode.getDefaultContainerBuildNode('ubuntu2204')
 ]
 
