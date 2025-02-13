@@ -13,7 +13,7 @@ if(APPLE AND EXISTS /usr/local/opt/qt)
 endif()
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
-find_package(Qt5 COMPONENTS Widgets PrintSupport REQUIRED)
+find_package(Qt6 COMPONENTS Widgets PrintSupport REQUIRED)
 
 find_package(qplot REQUIRED)
 
@@ -21,8 +21,8 @@ add_executable(example example.cpp)
 target_link_libraries(example
     ${CONAN_LIBS}
     QPlot
-    Qt5::Widgets
-    Qt5::PrintSupport)
+    Qt6::Widgets
+    Qt6::PrintSupport)
 
 # ------------------------------------------------------------------------------
 # CTest is a testing tool that can be used to test your project.
