@@ -4,7 +4,7 @@ from conans.util import files
 
 class qplotConan(ConanFile):
     name = "qplot"
-    version = "4029c03"
+    version = "4029c0397121d8bd"
     license = "https://github.com/ess-dmsc/qplot/blob/master/LICENSE"
     url = "https://github.com/ess-dmsc/conan-qplot"
     description = "Wrappers and convenience classes for scientific plotting with QtWidgets"
