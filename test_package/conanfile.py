@@ -20,5 +20,5 @@ class qplotTestConan(ConanFile):
     def test(self):
         if not tools.cross_building(self.settings):
             os.chdir("bin")
-            self.run("uname -a")
+            self.run("qmake -v")
             self.run(".%sexample -platform offscreen" % os.sep, ignore_errors=True)
