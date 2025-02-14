@@ -9,7 +9,7 @@ conan_pkg_channel = "stable"
 
 container_build_nodes = [
   'centos':     ContainerBuildNode.getDefaultContainerBuildNode('centos7-gcc11-qt6'),
-  'ubuntu2204': ContainerBuildNode.getDefaultContainerBuildNode('ubuntu2204')
+  'ubuntu2204': ContainerBuildNode.getDefaultContainerBuildNode('ubuntu2204-qt6')
 ]
 
 package_builder = new ConanPackageBuilder(this, container_build_nodes, conan_pkg_channel)
