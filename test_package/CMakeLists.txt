@@ -9,6 +9,7 @@ if(NOT DEFINED ENV{QT6_DIR})
   message(STATUS "The environment variable QT6_DIR has not been set. It should point to the root location of your Qt6 installation")
 endif()
 list(APPEND CMAKE_PREFIX_PATH "$ENV{QT6_DIR}/lib/cmake")
+list(APPEND CMAKE_PREFIX_PATH "/usr/lib/x86_64-linux-gnu")
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
