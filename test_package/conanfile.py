@@ -20,4 +20,5 @@ class qplotTestConan(ConanFile):
     def test(self):
         if not tools.cross_building(self.settings):
             os.chdir("bin")
+            self.run("ldd /usr/lib/x86_64-linux-gnu/libQt6Gui.so")
             self.run(".%sexample -platform offscreen" % os.sep)
