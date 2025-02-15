@@ -18,7 +18,7 @@ class qplotTestConan(ConanFile):
         self.copy("*.a", dst="bin", src='lib')
 
     def test(self):
-        # Test
+        # Test not
         if not tools.cross_building(self.settings):
             os.chdir("bin")
 #            self.run("objdump -s -j .note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.2.4")
