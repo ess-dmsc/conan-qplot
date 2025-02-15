@@ -23,6 +23,4 @@ class qplotTestConan(ConanFile):
             os.chdir("bin")
 #            self.run("objdump -s -j .note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.2.4")
             self.run("ldd `which qmake6`")
-            self.run("strip -v --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt6*.so.?.?.?")
-            self.run("ldd `which qmake6`")
             self.run(".%sexample -platform offscreen" % os.sep)
