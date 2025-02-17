@@ -5,7 +5,7 @@ variables:
   CONAN_USER: "ess-dmsc"
   CONAN_PKG_CHANNEL: "stable"
   PROJECT_NAME: "conan-qplot"
-  TARGET_CONTAINER_UPLOAD_REMOTE: "centos7-gcc11"
+  TARGET_CONTAINER_UPLOAD_REMOTE: "centos7-gcc11-qt6"
   CONAN_EXTERNAL_NAME: "ecdc-conan-external"
   CONAN_EXTERNAL_URL: "https://artifactory.esss.lu.se/artifactory/api/conan/ecdc-conan-external"
   CONAN_RELEASE_NAME: "ecdc-conan-release"
@@ -20,13 +20,13 @@ container_build_node:
   parallel:
     matrix:
       - CONTAINER: "centos7-gcc11"
-        IMAGE: "registry.esss.lu.se/ecdc/ess-dmsc/docker-centos7-build-node:12.3.0"
+        IMAGE: "registry.esss.lu.se/ecdc/ess-dmsc/build-nodes/centos7-qt6:1.0"
         SHELL: "/usr/bin/scl enable devtoolset-11 rh-python38 -- /bin/bash -e -x"
       - CONTAINER: "almalinux8-gcc12"
         IMAGE: "registry.esss.lu.se/ecdc/ess-dmsc/docker-almalinux8-build-node:1.1.0"
         SHELL: "/usr/bin/scl enable gcc-toolset-12 -- /bin/bash -e -x"
       - CONTAINER: "ubuntu2204"
-        IMAGE: "registry.esss.lu.se/ecdc/ess-dmsc/docker-ubuntu2204-build-node:5.0.0"
+        IMAGE: "registry.esss.lu.se/ecdc/ess-dmsc/build-nodes/ubuntu2204-qt6:1.1"
         SHELL: "bash -e -x"
   image: $IMAGE
   script:
@@ -38,13 +38,13 @@ container_build_node:
 
         setup_conan "$CONAN_EXTERNAL_NAME" "$CONAN_EXTERNAL_URL"
         setup_conan "$CONAN_RELEASE_NAME" "$CONAN_RELEASE_URL"
-        
+
         # Configurations for Conan package creation
         configurations=(
           "settings=(\"qplot:build_type=Release\") options=(\"qplot:shared=False\")"
           "settings=(\"qplot:build_type=Debug\") options=(\"qplot:shared=False\")"
         )
-        
+
         # Create a Conan Package for each configuration
         for config in "${configurations[@]}"; do
           eval "$config"
