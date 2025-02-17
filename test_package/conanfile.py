@@ -18,7 +18,6 @@ class qplotTestConan(ConanFile):
         self.copy("*.a", dst="bin", src='lib')
 
     def test(self):
-        # Test
         if not tools.cross_building(self.settings):
             os.chdir("bin")
             self.run(".%sexample -platform offscreen" % os.sep)
