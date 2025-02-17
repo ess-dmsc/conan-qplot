@@ -26,7 +26,7 @@ container_build_node:
         IMAGE: "registry.esss.lu.se/ecdc/ess-dmsc/docker-almalinux8-build-node:1.1.0"
         SHELL: "/usr/bin/scl enable gcc-toolset-12 -- /bin/bash -e -x"
       - CONTAINER: "ubuntu2204"
-        IMAGE: "registry.esss.lu.se/ecdc/ess-dmsc/build-nodes/ubuntu2204-qt6:1.0"
+        IMAGE: "registry.esss.lu.se/ecdc/ess-dmsc/build-nodes/ubuntu2204-qt6:1.1"
         SHELL: "bash -e -x"
   image: $IMAGE
   script:
